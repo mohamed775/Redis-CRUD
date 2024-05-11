@@ -3,6 +3,7 @@ package com.system.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -11,9 +12,11 @@ import com.system.entity.Product;
 @Repository
 public class ProductDAO {
 	
+	
 	public static final String HASH_KEY = "Product";
 	
 	@Autowired
+    @Qualifier("redisTemplate") // Specify the bean name to inject
 	private RedisTemplate template ;
 	
 	
